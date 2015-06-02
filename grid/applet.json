@@ -1,0 +1,11 @@
+{
+	"id": "a3c51875-b424-4493-bc81-4ce42ef31e35",
+	"version": 1,
+	"name": "Grid",
+	"description": "A very simple shared spreadsheet",
+	"image": "orange-grid-256.png",
+	"source": "grid-applet.html",
+	"view": {
+		"tagName": "grid-applet"
+	}
+}

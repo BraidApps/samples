@@ -1,0 +1,10 @@
+{
+	"id": "1210091a-c14c-4bba-bd70-a1129eaac6f6",
+	"version": 1,
+	"name": "Simple Chat",
+	"image": "minchat.png",
+	"source": "minchat-applet.html",
+	"view": {
+		"tagName": "minchat-applet"
+	}
+}

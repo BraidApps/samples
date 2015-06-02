@@ -1,0 +1,23 @@
+<polymer-element name="minchat-applet" attributes="tile">
+	<template>
+		<link rel='stylesheet' href='minchat.css'/>
+		<div vertical layout class='panel'>
+			<template repeat="{{message in $.messages.records}}">
+				<div vertical layout class='messagePanel'>
+					<div class='from'>{{message.updatedBy | userDisplayFilter}}</div>
+					<div class='message'>{{message.data.entry}}</div>
+				</div>
+			</template>
+			<div id='entryPanel'>
+				<div horizontal layout class="innerEntryPanel">
+					<paper-input id='entry' flex label='enter message here' on-keydown={{onKeyDown}}></paper-input>
+					<paper-button on-click="{{onAddClick}}">send</paper-button>
+				</div>
+			</div>
+		</div>
+		<braid-api id="braid" tile="{{tile}}" on-ready={{onReady}}>
+        	<braid-collection id="messages" name="messages" on-record-updated={{onRecordUpdated}}></braid-collection>
+		</braid-api>
+	</template>
+	<script src="minchat.js"></script>
+</polymer-element>

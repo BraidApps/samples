@@ -1,0 +1,11 @@
+{
+	"id": "58cb940a-5847-495a-b0db-e03c7a58edfc",
+	"version": 1,
+	"name": "Selfie Galore",
+	"description": "The best place to share selfies with a group of people",
+	"image": "selfie.jpg",
+	"source": "selfie-applet.html",
+	"view": {
+		"tagName": "selfie-applet"
+	}
+}

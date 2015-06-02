@@ -1,0 +1,10 @@
+{
+	"id": "fc2800d9-0d6d-4d13-a254-c2617fba2a3b",
+	"version": 1,
+	"name": "Hello World",
+	"image": "heart.png",
+	"source": "hello-applet.html",
+	"view": {
+		"tagName": "hello-applet"
+	}
+}

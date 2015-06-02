@@ -1,0 +1,23 @@
+<polymer-element name="cells-applet" attributes="tile">
+	<template>
+	  <link rel='stylesheet' href='styles.css'/>
+	  <div horizontal layout>
+	    <div flex></div>
+	    <paper-button on-click={{onAddRow}}>Add Row</paper-button>
+	    <paper-button on-click={{onAddCol}}>Add Col</paper-button>
+	  </div>
+	  <table cellspacing="0">
+	    <template repeat="{{r, i in rows}}">
+        <tr>
+          <template repeat="{{c, j in cols}}">
+            <td contentEditable="true" row="{{i}}" col="{{j}}" on-blur={{onCellBlur}}>
+              {{$.braid.properties['r' + i + ',c' + j]}}
+            </td>
+          </template>
+        </tr>
+      </template>
+	  </table>
+	  <braid-api id="braid" tile="{{tile}}" on-ready="{{onReady}}" on-property-changed="{{onPropChanged}}"></braid-api>
+	</template> 
+	<script src="cells-applet.js"></script>
+</polymer-element>

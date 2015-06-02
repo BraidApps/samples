@@ -1,0 +1,11 @@
+{
+	"id": "796ad2f1-7bb7-4a98-be4c-f58f0146e0be",
+	"version": 1,
+	"name": "Task List",
+	"description": "A simple applet to maintain a todo list",
+	"image": "icon.png",
+	"source": "task-list-applet.html",
+	"view": {
+		"tagName": "task-list-applet"
+	}
+}

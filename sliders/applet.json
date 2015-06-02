@@ -1,0 +1,24 @@
+{
+	"id": "8878e378-707e-4ef3-93a9-06c57c4c49b6",
+	"version": 1,
+	"name": "Color Picker",
+	"description": "This applet helps users pick a color",
+	"image": "icon.png",
+	"source": "sliders-applet.html",
+	"view": {
+		"tagName": "sliders-applet"
+	},
+	"fullView": {
+		"tagName": "sliders-applet",
+		"attributes": [
+			{
+				"name": "size",
+				"value": "300"
+			},
+			{
+				"name": "shape",
+				"value": "circle"
+			}
+		]
+	}
+}

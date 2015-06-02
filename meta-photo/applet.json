@@ -2,7 +2,7 @@
 	"id": "BC93CF3E-65B0-47DB-BF2C-1301376CE446",
 	"version": 1,
 	"name": "Meta Photo",
-	"description": "An applet where users can comment about photos",
+	"description": "Share comments about a photo",
 	"image": "logo.png",
 	"source": "meta-photo-applet.html",
 	"view": {

@@ -1,0 +1,22 @@
+table {
+  border-collapse: collapse;
+  padding: 10px
+  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+td {
+  padding: 3px;
+  border: 1px solid #ccc;
+  min-width: 50px;
+}
+
+paper-icon-button {
+  margin: 10px;
+}
+
+.addColumnButton {
+  display: inline-block;
+  vertical-align: top;
+}

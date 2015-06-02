@@ -1,0 +1,45 @@
+<link rel="import" href="task-list-item.html">
+
+<polymer-element name="task-list-applet" attributes="tile">
+	<template>
+		<style>
+		.list {
+			max-width: 800px;
+			margin: 0 auto;
+			padding-bottom: 70px;
+		}
+		
+		paper-fab {
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+			background: #259b24;
+		}
+		</style>
+		<div id="itemList" class="list">
+			<template repeat="{{task in taskItems}}">
+				<task-list-item record="{{task.data}}" recordId="{{task.recordId}}" 
+					on-change="{{onTaskItemChecked}}" on-edit="{{onTaskItemEdit}}" on-delete="{{onTaskItemDelete}}"></task-list-item>
+			</template>
+		</div>
+		<div>
+			<paper-fab mini icon="add" title="New item" on-click="{{onNewItem}}"></paper-fab>
+		</div>
+		<paper-action-dialog autoCloseDisabled backdrop closeSelector="#btnCancel" id="newTaskDlg" heading="New task" transition="core-transition-bottom">
+            <div style="width:400px;">
+                <paper-input-decorator id="nameDecorator" label="Task name" floatingLabel="" error="Invalid name">
+                    <input id="name" is="core-input" on-input="{{onNameChanged}}" />
+                 </paper-input-decorator>
+                <paper-input id="description" label="Description" floatingLabel="" style="display:block;"></paper-input>
+                <paper-input id="user" label="User" floatingLabel="" style="display:block;"></paper-input>
+            </div>
+            <paper-button id="btnCancel" affirmative on-click="{{onCancel}}">Cancel</paper-button>
+            <paper-button class="preferred" affirmative autofocus default on-click="{{onCreate}}">{{createButtonText}}</paper-button>
+        </paper-action-dialog>
+        
+        <braid-api id="braid" tile="{{tile}}" on-ready="{{onReady}}" >
+        	<braid-collection id="itemsCollection" name="taskItems" on-record-updated="{{onRecordUpdated}}" on-record-deleted="{{onRecordDeleted}}"></braid-collection>
+        </braid-api>
+	</template>
+	<script src="task-list-applet.js"></script>
+</polymer-element>

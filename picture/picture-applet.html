@@ -1,0 +1,13 @@
+<polymer-element name="picture-applet" attributes="tile">
+	<template>
+		<link rel='stylesheet' href='picture.css'/>		
+		<div horizontal layout wrap center style='padding:25px;'>
+			<template repeat="{{image in $.braid.files}}">
+				<braid-image tile={{tile}} sharedFileName={{image.fileName}} width='200' height='200' noDrop style='padding:10px;'></braid-image>
+			</template>
+			<braid-image tile={{tile}} noDisplay width='200' height='200' style='padding:10px;'></braid-image>
+		</div>
+		<braid-api id="braid" tile="{{tile}}"></braid-api>
+	</template> 
+	<script src="picture.js"></script> 
+</polymer-element>

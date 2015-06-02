@@ -1,0 +1,11 @@
+{
+	"id": "319130A2-B270-4B22-8988-0258D23E439E",
+	"version": 1,
+	"name": "fader",
+	"description": "",
+	"image": "fader.png",
+	"source": "fader-applet.html",
+	"view": {
+		"tagName": "fader-applet"
+	}
+}

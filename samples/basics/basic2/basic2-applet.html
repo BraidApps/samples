@@ -1,0 +1,37 @@
+<polymer-element name="sample-basic2-applet" attributes="tile">
+	<template>
+		<style>
+			.container {
+				text-align: center;
+				padding: 25px;
+				width: 100%;
+				font-size: 25pt;
+			}
+		</style>
+		<div class='container'>
+			<div id="valueDisplay"></div>
+			<button id="button1" on-click="{{onIncrClick}}">increment</button>
+		</div>
+		<braid-api id="braid" tile="{{tile}}" on-ready="{{onReady}}" on-property-changed="{{onPropertyChanged}}"></braid-api>
+	</template> 
+	<script>
+		Polymer('sample-basic2-applet', {
+			
+			onReady : function() {
+				if (!this.$.braid.properties.sharedValue) {
+					this.$.braid.properties.sharedValue = 1;
+				}
+				this.$.valueDisplay.innerText = this.$.braid.properties.sharedValue;				
+			},
+			
+			onIncrClick : function() {
+				this.$.braid.properties.sharedValue++;
+			},
+			
+			onPropertyChanged : function() {
+				this.$.valueDisplay.innerText = this.$.braid.properties.sharedValue;
+			}
+			
+		});
+	</script>
+</polymer-element>

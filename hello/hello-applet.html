@@ -1,0 +1,11 @@
+<polymer-element name="hello-applet" attributes="tile">
+	<template>
+		<div style='width:300px;padding:25px;margin:20px auto;text-align:center;'>
+			<input id="entry" type="text" name="entry" placeholder="Enter something here">
+			<button type="button" on-click="{{applyClick}}">Apply</button>
+			<h1 id="message">{{$.braid.properties.message}}</h1>
+		</div>
+		<braid-api id="braid" tile="{{tile}}"></braid-api>
+	</template> 
+	<script src="hello-applet.js"></script>
+</polymer-element>

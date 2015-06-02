@@ -1,0 +1,47 @@
+.panel {
+	width: 400px;
+	margin: 0 auto;
+	padding: 25px;
+	text-align: center;
+}
+.title {
+	text-align: center;
+	font-size: 16pt;
+	color: #77b;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.number {
+	font-size: 48pt;
+	color: #181855;
+}
+.caption {
+	font-size: 11pt;
+	color: #aaa;
+	margin-top: -10px;
+	font-weight: 100;
+}
+.part {
+	margin: 0 20px;
+	width: 100px;
+}
+.settings {
+	float: right;
+	color: #aaa;
+}
+.overdue {
+	font-size:36pt;
+	color:red;
+}
+.settingDateInput {
+	font-size:20pt;
+	border:0;
+	width:160px;
+}
+.settingTimeInput {
+	font-size:20pt;
+	margin-left:10px;
+	border:0;
+	width:140px;
+}

@@ -1,0 +1,9 @@
+{
+	"id": "52dceb65-d64b-4b62-b417-01ab5093409f",
+	"version": 1,
+	"name": "Sample: Basic 2",
+	"image": "sample2.png",
+	"view": {
+		"tagName": "sample-basic2-applet"
+	}
+}

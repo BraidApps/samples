@@ -1,0 +1,41 @@
+<polymer-element name="task-list-item" attributes="record recordId">
+	<template>
+		<style>
+		#container {
+			border-bottom: 1px solid #d8d8d8;
+		}
+		
+		core-label {
+		    padding: 0 10px 15px 15px;
+		}
+		
+		paper-checkbox {
+	      padding: 20px 20px 20px 0;
+	    }
+	    
+	    h4 {
+	    	margin: 20px 0 6px;
+	    	display: inline-block;
+	    }
+	    
+	    span {
+	    	color: #808080;
+	    	font-style: italic;
+	    }
+		</style>
+		<div id="container" horizontal layout>
+			<core-label id="label" flex horizontal layout>
+	      		<paper-checkbox id="check" on-core-change="{{onStateChange}}" on-change="{{onValueChanged}}" for></paper-checkbox>
+		      	<div vertical layout flex>
+		        	<div><h4>{{name}}</h4> - <span>{{user}}</span></div>
+		        	<div>{{description}}</div>
+		      	</div>
+			</core-label>
+			<div style="padding: 20px 5px;">
+				<paper-icon-button icon="create" on-click="{{onEdit}}"></paper-icon-button>
+				<paper-icon-button icon="clear" on-click="{{onDelete}}"></paper-icon-button>
+			</div>
+		</div>
+	</template>
+	<script src="task-list-item.js"></script>
+</polymer-element>

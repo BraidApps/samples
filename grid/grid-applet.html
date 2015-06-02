@@ -1,0 +1,24 @@
+<polymer-element name="grid-applet" attributes="tile">
+	<template>
+	  <link rel='stylesheet' href='styles.css'/>
+	  <div>
+  	  <table>
+    	  <template repeat="{{row in $.rows.records}}">
+    	    <tr>
+        	  <template repeat="{{col in $.columns.records}}">
+        	    <td contentEditable="true" rowid="{{row.recordId}}" colid="{{col.recordId}}" on-blur={{onCellBlur}}>{{grid[row.recordId][col.recordId]}}&nbsp;</td>
+        	  </template>
+    	    </tr>
+    	  </template>
+  	  </table>
+  	  <paper-icon-button class='addColumnButton' icon='add-circle' on-click={{onAddColumnClick}}></paper-button>
+	  </div>
+	  <paper-icon-button icon='add-circle' on-click={{onAddRowClick}}></paper-button>
+		<braid-api id="braid" tile="{{tile}}" on-ready={{onReady}}>
+		  <braid-collection id="rows" name="rows" on-record-updated={{onRowUpdated}}></braid-collection>
+		  <braid-collection id="columns" name="columns" on-record-updated={{onColumnUpdated}}></braid-collection>
+		  <braid-collection id="cells" name="cells" on-record-updated={{onCellUpdated}}></braid-collection>
+		</braid-api>
+	</template> 
+	<script src="grid.js"></script>
+</polymer-element>

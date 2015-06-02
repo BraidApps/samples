@@ -1,0 +1,10 @@
+{
+	"id": "56f1aef0-197d-4f4e-810d-0e522a9b2db5",
+	"version": 1,
+	"name": "Picture",
+	"image": "picture.jpeg",
+	"source": "picture-applet.html",
+	"view": {
+		"tagName": "picture-applet"
+	}
+}

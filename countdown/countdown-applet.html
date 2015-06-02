@@ -1,0 +1,43 @@
+<polymer-element name="countdown-applet" attributes="tile">
+	<template>
+		<link rel='stylesheet' href='countdown.css'/>
+		<paper-icon-button class="settings" icon="settings" on-click="{{onSettingsClick}}"></paper-icon-button>
+		<div class='panel'>
+			<div class='title'>{{$.braid.properties.heading}}</div>
+			<div id="clock" horizontal layout center-justified>
+				<div vertical layout center class='part'>
+					<div class='number'>{{days}}</div>
+					<div class='caption'>days</div>
+				</div>
+				<div vertical layout center class='part'>
+					<div class='number'>{{hours}}</div>
+					<div class='caption'>hours</div>
+				</div>
+				<div vertical layout center class='part'>
+					<div class='number'>{{mins}}</div>
+					<div class='caption'>mins</div>
+				</div>
+				<div vertical layout center class='part'>
+					<div class='number'>{{secs}}</div>
+					<div class='caption'>secs</div>
+				</div>
+			</div>
+			<div id='overdue' class='overdue' style="display:none;">overdue</div>
+		</div>
+		<paper-dialog id='dlgSettings' heading="Countdown Settings" style='width:500px;'>
+			<div vertical layout center-justified>
+	             <paper-input id="settingTitle" label="Optional title above the countdown" ></paper-input>
+	             <div style='margin:15px 5px 5px 5px;'>
+	             	 <div style='color:#999;'>Select target completion date and time:</div>
+		             <div><input id="settingDateInput" value={{settingDate}} on-click="{{onDateSelect}}" class='settingDateInput'/> 
+		             <input id="settingTimeInput" type="text" class="settingTimeInput"/></div>
+	             </div>
+            	<paper-button style="margin:5px 15px 15px 15px;" flex self-end autofocus default on-click="{{onSettingsUpdate}}">update</paper-button>
+			</div>
+		</paper-dialog>
+		<braid-api id="braid" tile="{{tile}}" on-ready="{{onReady}}" on-property-changed="{{onPropertyChanged}}">
+        </braid-api>
+	</template> 
+	<script src="moment.min.js"></script>
+	<script src="countdown.js"></script>
+</polymer-element>

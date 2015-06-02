@@ -1,0 +1,10 @@
+<polymer-element name="editable-applet" attributes="tile">
+	<template>
+	  <link rel='stylesheet' href='styles.css'/>
+	  <div id='container' contentEditable?="{{contentEditable}}" on-input={{onContentInput}}></div>
+	  <braid-api id="braid" tile="{{tile}}" on-ready={{onReady}}>
+	    <braid-collection id="inputs" name="inputs" on-record-updated={{onInputsUpdated}}></braid-collection>
+	  </braid-api>
+	</template> 
+	<script src="editable.js"></script>
+</polymer-element>

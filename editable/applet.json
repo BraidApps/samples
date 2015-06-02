@@ -1,0 +1,11 @@
+{
+	"id": "78f0cfe7-6d52-4f18-a6da-23a64206e86d",
+	"version": 1,
+	"name": "Editable",
+	"description": "A very simple shared editor",
+	"image": "file_edit.png",
+	"source": "editable-applet.html",
+	"view": {
+		"tagName": "editable-applet"
+	}
+}

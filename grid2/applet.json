@@ -1,0 +1,10 @@
+{
+	"id": "90096953-28be-49db-9821-45753d573637",
+	"version": 1,
+	"name": "Cells",
+	"description": "A very simple shared spreadsheet",
+	"source": "cells-applet.html",
+	"view": {
+		"tagName": "cells-applet"
+	}
+}

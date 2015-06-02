@@ -1,0 +1,56 @@
+<link rel="import" href="selfie-item.html">
+
+<polymer-element name="selfie-applet" attributes="tile">
+	<template>
+		<style>
+		#video {
+		  border: none;
+		  width:320px;
+		  height:240px;
+		}
+		
+		#canvas {
+		  display:none;
+		}
+		
+		.camera {
+			display: block;
+			padding: 10px 0;
+			text-align: center;
+			background-color: black;
+		}
+		
+		paper-button[raised].colored {
+	      background: #4285f4;
+	      color: #fff;
+	      margin: 10px 0 0;
+	    }
+	    
+	    #itemList {
+	    	padding: 5px;
+			text-align: center;
+	    }
+		
+		</style>
+		<div class="camera">
+    		<video id="video" on-canplay="{{onVideoCanPlay}}">Video stream not available.</video>
+    		<div>
+    			<paper-button raised class="colored" on-click="{{takePhoto}}">Take photo</paper-button>
+    		</div>
+  		</div>
+  		<canvas id="canvas"></canvas>
+  		
+  		<div id="itemList">
+  			<template repeat="{{item in $.images.records}}">
+  				<selfie-item recordId="{{item.recordId}}" record="{{item.data}}" jid="{{$.braid.profile.jid}}"
+						on-toggle-favorite="{{toggleFavorite}}" ></selfie-item>
+			</template>
+        </div>
+  		
+  		<braid-api id="braid" tile="{{tile}}" on-ready="{{onReady}}" >
+        	<braid-collection id="images" name="images" reverse="true"></braid-collection>
+        </braid-api>
+        
+	</template>
+	<script src="selfie-applet.js"></script>
+</polymer-element>
