@@ -66,7 +66,6 @@
       </div>
     </section>
     
-    
     <div horizontal center-justified layout style="padding: 10px; overflow: hidden;">
       <paper-button id="uploadButton" raised on-click="{{onUpload}}" class="{{hideOnImage}}">Select an image</paper-button>
       <input type="file" id="filePicker" accept="image/*" style="display:none" on-change="{{handleFile}}">
@@ -92,7 +91,6 @@
     <braid-api id="braid" tile="{{tile}}" on-ready="{{onReady}}" on-file-updated="{{refreshFile}}">
       <braid-collection id="comments" name="comments" reverse="true"></braid-collection>
     </braid-api>
-
   </template> 
   <script src="meta-photo-applet.js"></script>
 </polymer-element>
