@@ -5,7 +5,7 @@ Polymer('meta-photo-applet', {
 	
 	onReady: function() {
 	  if (!this.$.braid.properties.zoom) {
-	    this.$.braid.properties.zoom = 1;
+	    this.$.braid.properties.zoom = 1.0;
 	  }
 	  this.refreshFile();
 	},
