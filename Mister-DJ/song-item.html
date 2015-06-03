@@ -1,0 +1,32 @@
+<polymer-element name="song-item" attributes="name">
+  <template>
+    <style>
+    .container {
+      padding: 5px 5px 5px 2px;
+      border-bottom: 1px solid #d8d8d8;
+    }
+    
+    paper-icon-button {
+      color: #546E7A;
+    }
+    
+    paper-icon-button::shadow #icon {
+      width: 30px;
+      height: 30px;
+    }
+    
+    h3 {
+      margin: 13px 0px;
+    }
+    </style>
+    <div class="container" horizontal layout>
+      <div>
+        <paper-icon-button icon="{{playIcon}}" title="play" on-click="{{onPlay}}"></paper-icon-button>
+      </div>
+      <div flex>
+        <h3>{{name}}</h3>
+      </div>
+    </div>
+  </template>
+  <script src="song-item.js"></script>
+</polymer-element>

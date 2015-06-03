@@ -1,0 +1,30 @@
+<link rel="import" href="/braidroot/packages/core-icons/av-icons.html">
+<link rel="import" href="audio-player.html">
+<link rel="import" href="song-item.html">
+
+<polymer-element name="mister-dj-applet" attributes="tile">
+  <template>
+    <style>
+    paper-fab {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+    </style>
+    
+    <audio-player id="player" name="{{$.braid.properties.song}}" url="{{currentSong}}" playing="{{$.braid.properties.playing}}"
+        on-toogle-play="{{togglePlay}}" on-position-changed="{{trackPositionChanged}}"></audio-player>
+    
+    <div id="itemList">
+      <template repeat="{{file in $.braid.files}}">
+        <song-item name="{{file.fileName}}" on-play="{{onPlay}}"></song-item>
+      </template>
+    </div>
+    
+    <paper-fab mini icon="add" title="Add a song" on-click="{{onAdd}}" class="addfab"></paper-fab>
+    <input type="file" id="filepicker" multiple accept="audio/*" style="display:none" on-change="{{handleFiles}}">
+    
+    <braid-api id="braid" tile="{{tile}}" on-ready={{onReady}} on-property-changed="{{propertyChanged}}" on-app-message-received="{{receiveBroadcast}}"></braid-api>
+  </template> 
+  <script src="mister-dj-applet.js"></script>
+</polymer-element>

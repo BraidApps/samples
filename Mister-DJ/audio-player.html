@@ -1,0 +1,39 @@
+<polymer-element name="audio-player" attributes="name url playing">
+  <template>
+    <style>
+    .player-panel {
+      padding: 20px 10px;
+      background-color: #222;
+      color: white;
+    }
+    
+    paper-fab.play {
+      background-color: #2196F3;
+    }
+    
+    audio {
+      display: none;
+    }
+    
+    paper-slider::shadow #sliderKnobInner,
+    paper-slider::shadow #sliderBar::shadow #activeProgress {
+      background-color: #2196F3;
+    }
+    </style>
+    <div horizontal layout class="player-panel">
+      <div>
+  			<paper-fab id="btnPlay" icon="{{playIcon}}" on-click="{{togglePlay}}" class="play"></paper-fab>
+  		</div>
+  		<div flex vertical layout style="padding: 0 0 0 20px;">
+  		  <div style="font-size: 20px;">{{name}}</div>
+  		  <div horizontal layout center>
+  		    <div class="duration">{{position}}</div>
+  		    <paper-slider id="slider" flex value="{{progress}}" min="0" max="100" on-change="{{sliderChanged}}"></paper-slider>
+  		    <div class="duration">{{duration}}</div>
+  		  </div>
+  		  <audio id="audio" src="{{url}}" on-canplay="{{canPlay}}" on-durationchange="{{durationChanged}}" on-timeupdate="{{timeChanged}}"></audio>
+  		</div>
+    </div>
+  </template>
+  <script src="audio-player.js"></script>
+</polymer-element>
