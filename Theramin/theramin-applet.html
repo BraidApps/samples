@@ -1,0 +1,18 @@
+<polymer-element name="theramin-applet" attributes="tile">
+  <template>
+    <style>
+    #canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    </style>
+    
+    <div id="canvas" on-mouseleave="{{mouseOut}}" on-mousemove="{{mouseMove}}"></div>
+    
+    <braid-api id="braid" tile="{{tile}}" on-ready={{onReady}}></braid-api>
+  </template> 
+  <script src="theramin-applet.js"></script>
+</polymer-element>
