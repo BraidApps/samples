@@ -6,6 +6,10 @@ Polymer('theremin-applet', {
   maxVol: 0.05,
   sounds: {},
   hooked: false,
+  lastX: 0,
+  lastY: 0,
+  refX: -100,
+  refY: -100,
 	
 	onReady: function() {
 	  this.sounds = {};
@@ -18,6 +22,20 @@ Polymer('theremin-applet', {
       this.sounds[member.jid] = this.createSound();
 	  }
 	  this.hooked = true;
+	  window.setInterval(function() {
+	    if (this.refX == this.lastX && this.refY == this.lastY) {
+	      if (this.refX !== 0 && this.refY !== 0) {
+	        this.updateSound(this.$.braid.profile.jid, 0, 0);
+	        this.refX = 0;
+	        this.refY = 0;
+	        this.lastX = 0;
+	        this.lastY = 0;
+	      }
+	    } else {
+	      this.refX = this.lastX;
+	      this.refY = this.lastY;
+	    }
+	  }.bind(this), 1500);
 	},
 	
 	createSound: function() {
@@ -81,6 +99,8 @@ Polymer('theremin-applet', {
   	  var v = y / this.$.canvas.offsetHeight;
   	  this.broadcast(f, v);
   	  this.updateSound(this.$.braid.profile.jid, f, v);
+  	  this.lastX = x;
+  	  this.lastY = y;
 	  }
 	},
 	
