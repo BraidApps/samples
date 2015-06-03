@@ -1,7 +1,7 @@
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 var context = new window.AudioContext();
 
-Polymer('theramin-applet', {
+Polymer('theremin-applet', {
   maxFreq: 6000,
   maxVol: 0.05,
   sounds: {},
