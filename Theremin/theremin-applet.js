@@ -96,6 +96,9 @@ Polymer('theremin-applet', {
 	      if (this.pendingBroadcast) {
 	        this.broadcast(this.pendingBroadcast.frequency, this.pendingBroadcast.volume);
 	      }
+	    }.bind(this), function(error) {
+	      this.broadcasting = false;
+	      console.log(error);
 	    }.bind(this));
 	  } else {
 	    this.pendingBroadcast = {
