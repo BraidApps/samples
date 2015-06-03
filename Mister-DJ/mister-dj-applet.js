@@ -62,9 +62,10 @@ Polymer('mister-dj-applet', {
   
   receiveBroadcast: function(event) {
     var time = event.detail.payload.currentTime;
-    if(time) {
-      this.$.player.setCurrentTime(time);
+    if (!time) {
+      time = 0;
     }
+    this.$.player.setCurrentTime(time);
   }
 	
 });
