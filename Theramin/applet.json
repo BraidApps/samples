@@ -3,7 +3,7 @@
 	"version": 1,
 	"name": "Theramin",
 	"description": "",
-	"image": "logo.png",
+	"image": "logo.jpg",
 	"source": "theramin-applet.html",
 	"view": {
 		"tagName": "theramin-applet"

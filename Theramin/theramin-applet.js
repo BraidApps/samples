@@ -4,6 +4,8 @@ var context = new window.AudioContext();
 Polymer('theramin-applet', {
   maxFreq: 6000,
   maxVol: 0.05,
+  sounds: {},
+  hooked: false,
 	
 	onReady: function() {
 	  this.sounds = {};
@@ -15,6 +17,7 @@ Polymer('theramin-applet', {
 	    var member = this.$.braid.members[i];
       this.sounds[member.jid] = this.createSound();
 	  }
+	  this.hooked = true;
 	},
 	
 	createSound: function() {
@@ -65,16 +68,20 @@ Polymer('theramin-applet', {
 	},
 	
 	mouseOut: function(event) {
-	  this.updateSound(this.$.braid.profile.jid, 0, 0);
+	  if (this.hooked) {
+	    this.updateSound(this.$.braid.profile.jid, 0, 0);
+	  }
 	},
 	
 	mouseMove: function(event) {
-	  var x = event.offsetX ? event.offsetX : 0;
-	  var y = event.offsetY ? event.offsetY : 0;
-	  var f =  x / this.$.canvas.offsetWidth;
-	  var v = y / this.$.canvas.offsetHeight;
-	  this.broadcast(f, v);
-	  this.updateSound(this.$.braid.profile.jid, f, v);
+	  if (this.hooked) {
+  	  var x = event.offsetX ? event.offsetX : 0;
+  	  var y = event.offsetY ? event.offsetY : 0;
+  	  var f =  x / this.$.canvas.offsetWidth;
+  	  var v = y / this.$.canvas.offsetHeight;
+  	  this.broadcast(f, v);
+  	  this.updateSound(this.$.braid.profile.jid, f, v);
+	  }
 	},
 	
 	broadcast: function(f, v) {
