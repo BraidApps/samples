@@ -1,0 +1,11 @@
+{
+	"id": "81370364-532F-4F69-B1DD-E11A46FDF0F3",
+	"version": 1,
+	"name": "Theramin",
+	"description": "",
+	"image": "logo.jpg",
+	"source": "theramin-applet.html",
+	"view": {
+		"tagName": "theramin-applet"
+	}
+}

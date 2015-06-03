@@ -1,0 +1,29 @@
+<polymer-element name="theramin-applet" attributes="tile">
+  <template>
+    <style>
+    .fill {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    
+    .disc {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      margin-left: -25px;
+      margin-top: -25px;
+      transition: all 0.7s ease;
+    }
+    </style>
+    
+    <div id="canvas" class="fill"></div>
+    <div class="fill" on-mouseleave="{{mouseOut}}" on-mousemove="{{mouseMove}}"></div>
+    
+    <braid-api id="braid" tile="{{tile}}" on-ready={{onReady}} on-app-message-received="{{broadcastReceived}}"></braid-api>
+  </template> 
+  <script src="theramin-applet.js"></script>
+</polymer-element>
