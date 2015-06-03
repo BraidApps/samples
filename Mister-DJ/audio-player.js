@@ -7,9 +7,18 @@ Polymer('audio-player', {
   progress: 0,
   duration: "",
   position: "0:0",
+  playDisabled: true,
   
   attached: function() {
     this.$.slider.disabled = true;
+  },
+  
+  nameChanged: function() {
+    if (this.name) {
+      this.playDisabled = false;
+    } else {
+      this.playDisabled = true;
+    }
   },
   
   playingChanged: function() {
