@@ -62,14 +62,15 @@
     <section class="{{showOnImage}}">
       <div center horizontal layout style="padding: 10px;">
         <div>Zoom</div>
-        <paper-slider flex min="0" step="0.2" value="{{$.braid.properties.zoom}}" max="5" editable></paper-slider>
+        <paper-slider flex min="100" max="500" value="{{$.braid.properties.zoom}}" editable></paper-slider>
+        <div>%</div>
       </div>
     </section>
     
     <div horizontal center-justified layout style="padding: 10px; overflow: hidden;">
       <paper-button id="uploadButton" raised on-click="{{onUpload}}" class="{{hideOnImage}}">Select an image</paper-button>
       <input type="file" id="filePicker" accept="image/*" style="display:none" on-change="{{handleFile}}">
-      <div id="imgContainer" class="{{showOnImage}}" style="transform: scale({{$.braid.properties.zoom}});">
+      <div id="imgContainer" class="{{showOnImage}}" style="transform: scale({{$.braid.properties.zoom / 100}});">
         <img src="{{imageUrl}}" on-click="{{onImageClick}}">
         <template repeat="{{record in $.comments.records}}">
           <div class="tag" record-id="{{record.recordId}}" style="left:{{record.data.x}}px; top:{{record.data.y}}px;" title="{{record.data.comment}}"
