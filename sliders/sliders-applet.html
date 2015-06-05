@@ -17,7 +17,8 @@
       </div>
       <div id="colorPanel" flex style="background: rgb({{$.braid.properties.red}}, {{$.braid.properties.green}}, {{$.braid.properties.blue}});"></div>
     </div>
-    <braid-api id="braid" tile="{{tile}}" ></braid-api>
+    
+    <braid-api id="braid" tile="{{tile}}" on-ready="{{onReady}}" ></braid-api>
     
   </template>
   <script src="sliders-applet.js"></script>
