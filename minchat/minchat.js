@@ -15,7 +15,7 @@ Polymer('minchat-applet', {
 		}
 	},
 	
-	prepareEntry: function(delay) {
+	prepareEntry: function() {
 		this.async(function() {
 			this.$.entryPanel.scrollIntoView();
 			this.$.entry.focus();
