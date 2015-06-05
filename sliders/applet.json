@@ -1,6 +1,6 @@
 {
 	"id": "8878e378-707e-4ef3-93a9-06c57c4c49b6",
-	"version": 1,
+	"version": 2,
 	"name": "Color Picker",
 	"description": "This applet helps users pick a color",
 	"image": "icon.png",
