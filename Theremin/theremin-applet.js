@@ -3,7 +3,7 @@ var context = new window.AudioContext();
 
 Polymer('theremin-applet', {
   maxFreq: 6000,
-  maxVol: 0.05,
+  maxVol: 0.1,
   sounds: {},
   hooked: false,
   lastX: 0,

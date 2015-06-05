@@ -1,67 +1,24 @@
-<polymer-element name="sliders-applet" attributes="size shape tile">
+<polymer-element name="sliders-applet" attributes="tile">
 	<template>
-		<style>
-		.green-slider {
-	    	color: #4CAF50;
-	    }
+		<link rel='stylesheet' href='sliders.css'/>
 		
-		.green-slider paper-slider::shadow #sliderKnobInner,
-	    .green-slider paper-slider::shadow #sliderKnobInner::before,
-	    .green-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
-			background-color: #4CAF50;
-	    }
-	    
-	    .red-slider {
-	    	color: #F44336;
-	    }
-	    
-	    .red-slider paper-slider::shadow #sliderKnobInner,
-	    .red-slider paper-slider::shadow #sliderKnobInner::before,
-	    .red-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
-			background-color: #F44336;
-	    }
-	    
-	    
-	    .blue-slider {
-	    	color: #2196F3;
-	    }
-	    
-	    .blue-slider paper-slider::shadow #sliderKnobInner,
-	    .blue-slider paper-slider::shadow #sliderKnobInner::before,
-	    .blue-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
-			background-color: #2196F3;
-	    }
-	    
-	    .sliderCell {
-	    	padding: 10px 15px;
-	    	font-size: 13pt;
-	    }
-	    
-	    #colorPanel {
-	    	min-height: 50px;
-	    	margin: 15px;
-	    }
-	    
-	    .shell {
-	    	padding-top: 30px;
-	    }
-		</style>
 		<div vertical layout class="shell">
 			<div center horizontal layout class="red-slider sliderCell">
-      			<div>R</div>
-      			<paper-slider id="red" value="{{$.braid.properties.red}}" max="255" pin flex on-core-change="{{updateColor}}" on-immediate-value-change="{{updateTile}}" />
-    		</div>
-    		<div center horizontal layout class="green-slider sliderCell">
-      			<div>G</div>
-      			<paper-slider id="green" value="{{$.braid.properties.green}}" max="255" pin flex on-core-change="{{updateColor}}" on-immediate-value-change="{{updateTile}}" />
-    		</div>
-    		<div center horizontal layout class="blue-slider sliderCell">
-      			<div>B</div>
-      			<paper-slider id="blue" value="{{$.braid.properties.blue}}" max="255" pin flex on-core-change="{{updateColor}}" on-immediate-value-change="{{updateTile}}"  />
-    		</div>
-    		<div id="colorPanel" flex></div>
-    	</div>
-    	<braid-api id="braid" tile="{{tile}}" ></braid-api>
+        <div>R</div>
+        <paper-slider id="red" value="{{$.braid.properties.red}}" max="255" pin flex />
+  		</div>
+      <div center horizontal layout class="green-slider sliderCell">
+        <div>G</div>
+        <paper-slider id="green" value="{{$.braid.properties.green}}" max="255" pin flex />
+      </div>
+      <div center horizontal layout class="blue-slider sliderCell">
+        <div>B</div>
+        <paper-slider id="blue" value="{{$.braid.properties.blue}}" max="255" pin flex />
+      </div>
+      <div id="colorPanel" flex style="background: rgb({{$.braid.properties.red}}, {{$.braid.properties.green}}, {{$.braid.properties.blue}});"></div>
+    </div>
+    <braid-api id="braid" tile="{{tile}}" ></braid-api>
+    
   </template>
   <script src="sliders-applet.js"></script>
 </polymer-element>

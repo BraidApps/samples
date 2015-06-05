@@ -7,18 +7,5 @@
 	"source": "sliders-applet.html",
 	"view": {
 		"tagName": "sliders-applet"
-	},
-	"fullView": {
-		"tagName": "sliders-applet",
-		"attributes": [
-			{
-				"name": "size",
-				"value": "300"
-			},
-			{
-				"name": "shape",
-				"value": "circle"
-			}
-		]
 	}
 }

@@ -1,0 +1,44 @@
+.green-slider {
+  color: #4CAF50;
+}
+
+.green-slider paper-slider::shadow #sliderKnobInner,
+.green-slider paper-slider::shadow #sliderKnobInner::before,
+.green-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
+  background-color: #4CAF50;
+}
+
+.red-slider {
+  color: #F44336;
+}
+
+.red-slider paper-slider::shadow #sliderKnobInner,
+.red-slider paper-slider::shadow #sliderKnobInner::before,
+.red-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
+  background-color: #F44336;
+}
+
+
+.blue-slider {
+  color: #2196F3;
+}
+
+.blue-slider paper-slider::shadow #sliderKnobInner,
+.blue-slider paper-slider::shadow #sliderKnobInner::before,
+.blue-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
+  background-color: #2196F3;
+}
+
+.sliderCell {
+  padding: 10px 15px;
+  font-size: 13pt;
+}
+
+#colorPanel {
+  min-height: 50px;
+  margin: 15px;
+}
+
+.shell {
+  padding-top: 30px;
+}
