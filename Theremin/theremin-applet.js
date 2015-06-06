@@ -6,10 +6,7 @@ Polymer('theremin-applet', {
   maxVol: 0.1,
   sounds: {},
   hooked: false,
-  lastX: 0,
-  lastY: 0,
-  refX: -100,
-  refY: -100,
+  lastUpdate: 0,
 	
 	onReady: function() {
 	  this.sounds = {};
@@ -23,17 +20,13 @@ Polymer('theremin-applet', {
 	  }
 	  this.hooked = true;
 	  window.setInterval(function() {
-	    if (this.refX == this.lastX && this.refY == this.lastY) {
-	      if (this.refX !== 0 && this.refY !== 0) {
-	        this.updateSound(this.$.braid.profile.jid, 0, 0);
-	        this.refX = 0;
-	        this.refY = 0;
-	        this.lastX = 0;
-	        this.lastY = 0;
-	      }
-	    } else {
-	      this.refX = this.lastX;
-	      this.refY = this.lastY;
+	    var now = (new Date()).getTime();
+	    if ((now - this.lastUpdate) > 2000) {
+	      this.updateSound(this.$.braid.profile.jid, 0, 0);
+	      for (var i = 0; i < this.$.braid.members.length; i++) {
+    	    var member = this.$.braid.members[i];
+    	    this.updateSound(member.jid, 0, 0);
+    	  }
 	    }
 	  }.bind(this), 1500);
 	},
@@ -64,6 +57,7 @@ Polymer('theremin-applet', {
       this.sounds[jid].oscillator.frequency.value = frequency * this.maxFreq;
       this.sounds[jid].amp.gain.value = volume * this.maxVol;
       this.draw(frequency, volume);
+      this.lastUpdate = (new Date()).getTime();
     }
 	},
 	
@@ -87,6 +81,7 @@ Polymer('theremin-applet', {
 	
 	mouseOut: function(event) {
 	  if (this.hooked) {
+	    this.broadcast(0, 0);
 	    this.updateSound(this.$.braid.profile.jid, 0, 0);
 	  }
 	},
@@ -99,8 +94,6 @@ Polymer('theremin-applet', {
   	  var v = y / this.$.canvas.offsetHeight;
   	  this.broadcast(f, v);
   	  this.updateSound(this.$.braid.profile.jid, f, v);
-  	  this.lastX = x;
-  	  this.lastY = y;
 	  }
 	},
 	
